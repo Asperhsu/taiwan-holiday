@@ -1,0 +1,18 @@
+{
+    "name": "asperhsu/taiwan-holiday",
+    "autoload": {
+        "psr-4": {
+            "AsperHsu\\TaiwanHoliday\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Asper",
+            "email": "asperwon@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.4",
+        "illuminate/support": "^7"
+    }
+}
