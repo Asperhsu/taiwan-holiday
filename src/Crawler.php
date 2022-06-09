@@ -23,8 +23,8 @@ class Crawler
                 return $this->filterRawRow($row);
             })
             ->map(function ($result) {
-                unset($result['_id'], $result['isHoliday']);
-                $result['isWeekend'] = $result['holidayCategory'] == '星期六、星期日';
+                unset($result['_id'], $result['isholiday']);
+                $result['isWeekend'] = $result['holidaycategory'] == '星期六、星期日';
                 $result['iso8601'] = Carbon::createFromFormat(static::DATE_FORMAT, $result['date'], 'Asia/Taipei')->startOfDay()->toIso8601String();
 
                 return $result;
@@ -46,7 +46,7 @@ class Crawler
 
     public function filterRawRow(array $row): bool
     {
-        if ($row['isHoliday'] !== '是') {
+        if (($row['isholiday'] ?? '') !== '是') {
             return false;
         }
 
